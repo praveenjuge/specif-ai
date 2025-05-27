@@ -3,10 +3,10 @@
     <div class="flex flex-row gap-1 justify-between items-start w-full">
       <div class="flex flex-col items-start gap-2">
         <div>
-          <h4 class="text-sm font-medium text-secondary-900 line-clamp-2">
+          <h4 class="text-sm font-medium text-slate-900 line-clamp-2">
             {{ server.name ?? server.id }}
           </h4>
-          <p class="text-xs text-secondary-500" *ngIf="server.name">
+          <p class="text-xs text-muted-foreground" *ngIf="server.name">
             ID: {{ server.id }}
           </p>
         </div>
@@ -15,8 +15,8 @@
         <span
           [class]="
             server.status === 'connected'
-              ? 'bg-success-100 text-success-700'
-              : 'bg-danger-100 text-danger-700'
+              ? 'bg-emerald-100 text-emerald-700'
+              : 'bg-red-100 text-red-700'
           "
           class="px-2 py-1 text-xs font-medium rounded"
         >
@@ -27,7 +27,7 @@
 
     <div
       *ngIf="server.errors && server.errors.length > 0"
-      class="text-sm text-danger-700 bg-danger-100 px-2 py-1 rounded flex flex-row gap-1 items-start"
+      class="text-sm text-red-700 bg-red-100 px-2 py-1 rounded flex flex-row gap-1 items-start"
     >
       <span *ngFor="let error of server.errors; let last = last">
         {{ error }}{{ !last ? ", " : "" }}
@@ -70,14 +70,14 @@
         >
           <div
             *ngFor="let tool of server.tools"
-            class="p-3 bg-secondary-50 rounded-md"
+            class="p-3 bg-slate-50 rounded-md"
           >
             <div class="flex items-start justify-between gap-0.5">
               <div>
-                <h6 class="text-sm font-medium text-secondary-900">
+                <h6 class="text-sm font-medium text-slate-900">
                   {{ tool.name }}
                 </h6>
-                <p class="text-xs text-secondary-500 line-clamp-2">
+                <p class="text-xs text-muted-foreground line-clamp-2">
                   {{ tool.description }}
                 </p>
               </div>
@@ -85,7 +85,9 @@
           </div>
         </div>
         <ng-template #noTools>
-          <p class="text-center text-secondary-500 py-4">No tools available</p>
+          <p class="text-center text-muted-foreground py-4">
+            No tools available
+          </p>
         </ng-template>
       </div>
 
@@ -100,19 +102,19 @@
         >
           <div
             *ngFor="let resource of server.resources"
-            class="p-3 bg-secondary-50 rounded-md"
+            class="p-3 bg-slate-50 rounded-md"
           >
             <div class="flex items-start justify-between">
               <div class="flex flex-col gap-0.5">
-                <h6 class="text-sm font-medium text-secondary-900">
+                <h6 class="text-sm font-medium text-slate-900">
                   {{ resource.name }}
                 </h6>
-                <p class="text-xs text-secondary-500">
+                <p class="text-xs text-muted-foreground">
                   URI: {{ resource.uri }}
                 </p>
                 <p
                   *ngIf="resource.description"
-                  class="text-sm text-secondary-600 line-clamp-2"
+                  class="text-sm text-slate-600 line-clamp-2"
                 >
                   {{ resource.description }}
                 </p>
@@ -121,7 +123,7 @@
           </div>
         </div>
         <ng-template #noResources>
-          <p class="text-center text-secondary-500 py-4">
+          <p class="text-center text-muted-foreground py-4">
             No resources available
           </p>
         </ng-template>
@@ -141,8 +143,9 @@
     (click)="activeTab = tabId"
     class="flex-grow text-center py-2.5 text-sm font-medium rounded-lg border"
     [ngClass]="{
-      'border-secondary-200 bg-primary-50 text-primary-600': isTabActive,
-      'text-secondary-500 border-transparent hover:bg-primary-50': !isTabActive,
+      'border-slate-200 bg-primaryold-50 text-primary': isTabActive,
+      'text-muted-foreground border-transparent hover:bg-primaryold-50':
+        !isTabActive,
     }"
   >
     {{ label }}

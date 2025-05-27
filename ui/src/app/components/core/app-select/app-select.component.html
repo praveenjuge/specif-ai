@@ -1,8 +1,8 @@
 <div class="custom-select-container relative" [class]="customClass">
   <!-- Label -->
-  <label *ngIf="label" class="block text-sm font-medium text-secondary-900 mb-2">
+  <label *ngIf="label" class="block text-sm font-medium mb-2">
     {{ label }}
-    <span *ngIf="showRequiredIndicator" class="text-danger-500">*</span>
+    <span *ngIf="showRequiredIndicator" class="text-destructive">*</span>
   </label>
 
   <!-- Select Input -->
@@ -16,7 +16,7 @@
         [placeholder]="placeholder"
         [disabled]="disabled"
         [required]="required"
-        class="h-10 block w-full px-3 pr-10 border border-secondary-300 text-secondary-900 text-sm rounded-lg focus-visible:ring-1 focus-visible:ring-primary-500 focus-visible:border-primary-500 disabled:bg-secondary-100 focus-visible:outline-none cursor-text"
+        class="flex items-center h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
         autocomplete="off"
       />
     </ng-container>
@@ -24,8 +24,8 @@
     <ng-template #regularSelect>
       <div
         (click)="toggleDropdown()"
-        class="h-10 flex items-center w-full px-3 pr-10 border border-secondary-300 text-secondary-900 text-sm rounded-lg focus-visible:ring-1 focus-visible:ring-primary-500 focus-visible:border-primary-500 disabled:bg-secondary-100 focus-visible:outline-none cursor-pointer"
-        [class.bg-secondary-100]="disabled"
+        class="flex items-center h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+        [class.bg-slate-100]="disabled"
         [class.cursor-not-allowed]="disabled"
       >
         {{ selectedOption?.label || placeholder }}
@@ -38,13 +38,15 @@
       (click)="clear($event)"
       class="pointer-events-auto absolute inset-y-0 right-8 flex items-center pr-2 cursor-pointer"
     >
-    <ng-icon name="heroXMark" class="text-secondary-500 h-4 w-4"></ng-icon>
+      <ng-icon name="heroXMark" class="text-muted-foreground h-4 w-4"></ng-icon>
     </button>
 
     <!-- Dropdown Arrow -->
-    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+    <div
+      class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3"
+    >
       <svg
-        class="h-4 w-4 text-secondary-400"
+        class="h-4 w-4 text-slate-400"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -62,12 +64,12 @@
   <!-- Dropdown Options -->
   <div
     *ngIf="showDropdown && filteredOptions.length > 0"
-    class="absolute z-10 w-full mt-1 bg-white border border-secondary-200 rounded-lg shadow-lg max-h-60 overflow-auto"
+    class="absolute z-10 w-full mt-1 bg-background border rounded-lg shadow-lg max-h-60 overflow-auto"
     [class]="dropdownClass"
   >
     <div
       *ngFor="let option of filteredOptions"
-      class="px-3 py-2 text-sm text-secondary-900 hover:bg-secondary-50 cursor-pointer"
+      class="px-3 py-2 text-sm text-slate-900 hover:bg-slate-50 cursor-pointer"
       [class]="optionClass"
       (click)="selectOption(option)"
     >

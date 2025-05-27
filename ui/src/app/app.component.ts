@@ -14,6 +14,7 @@ import { AnalyticsTracker } from './services/analytics/analytics.interface';
 import { geoAzimuthalEquidistantRaw } from 'd3';
 import { ANALYTICS_TOGGLE_KEY } from './services/analytics/utils/analytics.utils';
 import { APP_CONSTANTS } from './constants/app.constants';
+import { ThemeService } from './services/theme/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -31,7 +32,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
 
+  constructor(private themeService: ThemeService) {}
+
   ngOnInit() {
+    this.themeService.applyInitialTheme();
+
     // Check authentication state immediately
     this.checkAuthAndRedirect();
 

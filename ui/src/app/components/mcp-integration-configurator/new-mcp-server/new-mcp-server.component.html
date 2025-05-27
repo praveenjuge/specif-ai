@@ -9,8 +9,9 @@
         elementPlaceHolder="Enter server identifier"
         [required]="true"
       ></app-input-field>
-      <span *ngIf="isServerIdInvalid" class="text-xs text-danger-600">
-        Please enter a valid server ID (alphanumeric characters, hyphens, periods and underscores only).
+      <span *ngIf="isServerIdInvalid" class="text-xs text-destructive">
+        Please enter a valid server ID (alphanumeric characters, hyphens,
+        periods and underscores only).
       </span>
     </div>
 
@@ -24,29 +25,69 @@
         [rows]="10"
         (paste)="onServerConfigPaste($event)"
       ></app-textarea-field>
-      <span *ngIf="isServerConfigJsonInvalid" class="text-xs text-danger-600">
+      <span *ngIf="isServerConfigJsonInvalid" class="text-xs text-destructive">
         Please enter valid JSON for the server configuration.
       </span>
-      <span *ngIf="isServerConfigSchemaInvalid && !isServerConfigJsonInvalid" class="text-xs text-danger-600">
+      <span
+        *ngIf="isServerConfigSchemaInvalid && !isServerConfigJsonInvalid"
+        class="text-xs text-destructive"
+      >
         The server configuration does not match the required schema.
       </span>
       <div class="flex gap-1 text-xs">
         Download sample
-        <a [href]="getStdioServerDownloadUrl()" download="sample-stdio-server-config.json" class="text-blue-600 hover:underline">stdio</a> or
-        <a [href]="getSseServerDownloadUrl()" download="sample-sse-server-config.json" class="text-blue-600 hover:underline">sse</a> server for reference
+        <a
+          [href]="getStdioServerDownloadUrl()"
+          download="sample-stdio-server-config.json"
+          class="text-blue-600 hover:underline"
+          >stdio</a
+        >
+        or
+        <a
+          [href]="getSseServerDownloadUrl()"
+          download="sample-sse-server-config.json"
+          class="text-blue-600 hover:underline"
+          >sse</a
+        >
+        server for reference
       </div>
     </div>
 
-    
     <div class="flex gap-1 justify-end">
-      <app-button buttonContent="Cancel" size="sm" (click)="onCancel()" theme="secondary_outline"></app-button>
-      <app-button buttonContent="Validate" size="sm" [disabled]="form.invalid || isValidating" (click)="onValidate()" theme="primary"></app-button>
-      <app-button buttonContent="Submit" size="sm" [disabled]="form.invalid || !isValidated || validatedServerStatus?.status === 'error'" (click)="onSubmit()" theme="primary"></app-button>
+      <app-button
+        buttonContent="Cancel"
+        size="sm"
+        (click)="onCancel()"
+        theme="secondary_outline"
+      ></app-button>
+      <app-button
+        buttonContent="Validate"
+        size="sm"
+        [disabled]="form.invalid || isValidating"
+        (click)="onValidate()"
+        theme="primary"
+      ></app-button>
+      <app-button
+        buttonContent="Submit"
+        size="sm"
+        [disabled]="
+          form.invalid ||
+          !isValidated ||
+          validatedServerStatus?.status === 'error'
+        "
+        (click)="onSubmit()"
+        theme="primary"
+      ></app-button>
     </div>
   </form>
 
-  <div *ngIf="showServerInformation && validatedServerStatus" class="flex flex-col gap-2">
+  <div
+    *ngIf="showServerInformation && validatedServerStatus"
+    class="flex flex-col gap-2"
+  >
     <h3>Server Validation Result</h3>
-    <app-mcp-servers-item [server]="validatedServerStatus"></app-mcp-servers-item>
+    <app-mcp-servers-item
+      [server]="validatedServerStatus"
+    ></app-mcp-servers-item>
   </div>
 </div>

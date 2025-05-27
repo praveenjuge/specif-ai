@@ -1,11 +1,11 @@
 <div class="my-1.5">
   <label
     [for]="elementId"
-    class="block mb-1.5 text-sm font-medium text-secondary-500"
+    class="block mb-1.5 text-sm font-medium text-muted-foreground"
     *ngIf="showLabel"
   >
     {{ elementName }}
-    <span class="text-danger-500 text-xs" *ngIf="required">*</span>
+    <span class="text-destructive text-xs" *ngIf="required">*</span>
   </label>
   <input
     [type]="elementType"
@@ -14,7 +14,7 @@
     (keydown.enter)="onKeyDown()"
     [value]="value"
     [disabled]="isDisabled"
-    class="block w-full p-2.5 border border-secondary-200 text-secondary-900 text-sm rounded-lg focus-visible:ring-1 focus-visible:ring-primary-500 focus-visible:border-primary-500 disabled:bg-secondary-100 focus-visible:outline-none {{
+    class="flex items-center h-10 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm {{
       customClass
     }}"
     [placeholder]="elementPlaceHolder"

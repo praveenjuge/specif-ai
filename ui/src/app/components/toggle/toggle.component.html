@@ -1,6 +1,6 @@
 <div
   class="relative flex items-center cursor-pointer w-8 h-4 rounded-full transition-colors duration-200 ease-in-out"
-  [ngClass]="{ 'bg-primary-500': isActive, 'bg-secondary-300': !isActive }"
+  [ngClass]="{ 'bg-primaryold-500': isActive, 'bg-slate-300': !isActive }"
   (click)="toggle()"
   (keydown.enter)="toggle()"
   (keydown.space)="toggle(); $event.preventDefault()"

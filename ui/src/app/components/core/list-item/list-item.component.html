@@ -1,24 +1,24 @@
 <div class="grid grid-cols-1 gap-5 sm:gap-6 lg:gap-6 mt-3">
   <div class="col-span-1 flex rounded-md shadow-sm">
     <div
-      class="flex flex-1 items-center justify-between truncate rounded-lg border bg-white cursor-pointer hover:bg-secondary-50 transition-colors relative"
+      class="flex flex-1 items-center justify-between truncate rounded-lg border bg-white cursor-pointer hover:bg-slate-50 transition-colors relative"
     >
       <div class="flex-1 truncate p-4 text-sm flex flex-col gap-2">
-        <a class="font-semibold text-secondary-500 text-sm">
+        <a class="font-semibold text-muted-foreground text-sm">
           {{ tag }}
           <span *ngIf="payload.jiraTicketId"
             >&bull; {{ payload.jiraTicketId }}</span
           >
         </a>
         <div class="flex flex-col gap-1">
-          <h1 class="text-secondary-900 text-base font-medium truncate">
+          <h1 class="text-slate-900 text-base font-medium truncate">
             {{ payload.name }}
           </h1>
           <ng-container *ngIf="payload.description as description">
             <app-rich-text-editor
               mode="view"
               [content]="description"
-              editorClass="prose-secondary-view prose-xs"
+              editorClass="prose-slate-view prose-xs"
             >
             </app-rich-text-editor>
           </ng-container>

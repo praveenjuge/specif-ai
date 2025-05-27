@@ -63,7 +63,15 @@ type OnTouchedCallback = () => void;
     },
   ],
   imports: [CdkMenuModule, NgClass, NgIf, NgIcon, MatTooltipModule],
-  viewProviders: [provideIcons({ heroChevronDown, heroItalic, heroBold, heroListBullet, heroNumberedList })],
+  viewProviders: [
+    provideIcons({
+      heroChevronDown,
+      heroItalic,
+      heroBold,
+      heroListBullet,
+      heroNumberedList,
+    }),
+  ],
 })
 export class RichTextEditorComponent
   implements
@@ -126,9 +134,9 @@ export class RichTextEditorComponent
   private getEditorClass(): string {
     return `${
       this.mode === 'edit'
-        ? 'p-2.5 focus-visible:outline-none prose-secondary-edit'
+        ? 'p-2.5 focus-visible:outline-none prose-slate-edit'
         : ''
-    } rounded-lg disabled:bg-secondary-100 max-w-none prose prose-sm prose-p:m-0 prose-p:mb-[0.625rem] prose-li:m-0 ${this.editorClass}`;
+    } rounded-lg disabled:bg-slate-100 max-w-none prose prose-sm prose-p:m-0 prose-p:mb-[0.625rem] prose-li:m-0 ${this.editorClass}`;
   }
 
   private async setupEditor() {

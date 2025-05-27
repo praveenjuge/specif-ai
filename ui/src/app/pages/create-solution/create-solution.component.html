@@ -2,9 +2,7 @@
   [show]="loading"
   [config]="{ backdropBorderRadius: '3px' }"
 ></ngx-loading>
-<header
-  class="flex items-center justify-between py-3 bg-secondary-50 sticky top-0"
->
+<header class="flex items-center justify-between py-3 bg-slate-50 sticky top-0">
   <h1 class="text-lg font-semibold">Create Solution</h1>
   <div class="flex gap-2">
     <app-button
@@ -37,8 +35,8 @@
     <ng-container accordion-body>
       <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-3">
         <label
-          class="block text-sm font-medium leading-6 text-secondary-900 sm:pt-1.5"
-          >Solution Name<span class="text-danger-500 text-xs"> *</span></label
+          class="block text-sm font-medium leading-6 text-slate-900 sm:pt-1.5"
+          >Solution Name<span class="text-destructive text-xs"> *</span></label
         >
 
         <app-input-field
@@ -56,8 +54,8 @@
       <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-3">
         <div>
           <label
-            class="block text-sm font-medium leading-6 text-secondary-900 sm:pt-1.5"
-            >Solution Description<span class="text-danger-500 text-xs">
+            class="block text-sm font-medium leading-6 text-slate-900 sm:pt-1.5"
+            >Solution Description<span class="text-destructive text-xs">
               *</span
             ></label
           >
@@ -82,8 +80,8 @@
       <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-3">
         <div>
           <label
-            class="block text-sm font-medium leading-6 text-secondary-900 sm:pt-1.5"
-            >Technical Details<span class="text-danger-500 text-xs">
+            class="block text-sm font-medium leading-6 text-slate-900 sm:pt-1.5"
+            >Technical Details<span class="text-destructive text-xs">
               *</span
             ></label
           >
@@ -109,8 +107,8 @@
 
       <div class="sm:grid sm:grid-cols-3 sm:items-center sm:gap-4 sm:py-3">
         <div>
-          <label class="block text-sm font-medium leading-6 text-secondary-900"
-            >Is solution built already?<span class="text-danger-500 text-xs">
+          <label class="block text-sm font-medium leading-6 text-slate-900"
+            >Is solution built already?<span class="text-destructive text-xs">
               *</span
             ></label
           >
@@ -154,8 +152,8 @@
         *ngIf="!solutionForm.get('cleanSolution')?.value"
       >
         <div>
-          <label class="block text-sm font-medium leading-6 text-secondary-900">
-            Business Requirements (BRD)<span class="text-danger-500 text-xs">
+          <label class="block text-sm font-medium leading-6 text-slate-900">
+            Business Requirements (BRD)<span class="text-destructive text-xs">
               *</span
             >
           </label>
@@ -183,8 +181,8 @@
         *ngIf="!solutionForm.get('cleanSolution')?.value"
       >
         <div>
-          <label class="block text-sm font-medium leading-6 text-secondary-900">
-            Product Requirements (PRD)<span class="text-danger-500 text-xs">
+          <label class="block text-sm font-medium leading-6 text-slate-900">
+            Product Requirements (PRD)<span class="text-destructive text-xs">
               *</span
             >
           </label>
@@ -212,8 +210,10 @@
         *ngIf="!solutionForm.get('cleanSolution')?.value"
       >
         <div>
-          <label class="block text-sm font-medium leading-6 text-secondary-900">
-            UI Requirements (UIR)<span class="text-danger-500 text-xs"> *</span>
+          <label class="block text-sm font-medium leading-6 text-slate-900">
+            UI Requirements (UIR)<span class="text-destructive text-xs">
+              *</span
+            >
           </label>
           <p class="text-xs leading-6 text-muted-foreground">
             Set the minimum number of UI Requirements
@@ -239,9 +239,9 @@
         *ngIf="!solutionForm.get('cleanSolution')?.value"
       >
         <div>
-          <label class="block text-sm font-medium leading-6 text-secondary-900">
+          <label class="block text-sm font-medium leading-6 text-slate-900">
             Non-Functional Requirements (NFR)<span
-              class="text-danger-500 text-xs"
+              class="text-destructive text-xs"
             >
               *</span
             >

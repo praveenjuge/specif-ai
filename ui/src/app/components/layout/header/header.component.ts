@@ -8,6 +8,7 @@ import { BreadcrumbsComponent } from '../../core/breadcrumbs/breadcrumbs.compone
 import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { heroCog8Tooth } from '@ng-icons/heroicons/outline';
+import { ThemeToggleComponent } from '../../theme-toggle/theme-toggle.component';
 
 @Component({
   selector: 'app-header',
@@ -22,6 +23,7 @@ import { heroCog8Tooth } from '@ng-icons/heroicons/outline';
     RouterLink,
     AsyncPipe,
     MatTooltipModule,
+    ThemeToggleComponent,
   ],
   viewProviders: [provideIcons({ heroCog8Tooth })],
 })

@@ -5,7 +5,7 @@
       class="bg-white border rounded-lg flex flex-col col-span-12 lg:col-span-7 overflow-y-auto"
     >
       <header
-        class="flex justify-between items-center p-4 border-b border-secondary-200"
+        class="flex justify-between items-center p-4 border-b border-slate-200"
       >
         <h1 class="text-lg font-semibold" *ngIf="mode === 'add'">
           {{ folderName | expandDescription }}
@@ -52,16 +52,16 @@
                 businessProcessForm.get('title')?.errors?.['required'] &&
                 businessProcessForm.get('title')?.touched
               "
-              class="text-danger-500 text-sm"
+              class="text-destructive text-sm"
             >
               Title is required
             </div>
           </div>
 
           <div class="flex flex-col gap-1.5">
-            <label class="block text-sm font-medium text-secondary-500">
+            <label class="block text-sm font-medium text-muted-foreground">
               Description
-              <span class="text-red-500 text-xs">*</span>
+              <span class="text-destructive text-xs">*</span>
             </label>
             <div class="flex flex-col gap-1.5">
               <app-rich-text-editor
@@ -73,7 +73,7 @@
                   *ngIf="
                     businessProcessForm.get('content')?.errors?.['required']
                   "
-                  class="text-red-500 text-sm"
+                  class="text-destructive text-sm"
                 >
                   Description is required
                 </span>
@@ -82,7 +82,7 @@
           </div>
         </div>
 
-        <div class="flex justify-end gap-2 p-4 border-t border-secondary-200">
+        <div class="flex justify-end gap-2 p-4 border-t border-slate-200">
           <app-button
             buttonContent="Enhance with AI"
             icon="heroSparklesSolid"
@@ -118,7 +118,7 @@
       </div>
       <div class="p-4 flex flex-col gap-3">
         <div>
-          <h2 class="text-sm font-medium text-secondary-900">Included BRDs</h2>
+          <h2 class="text-sm font-medium text-slate-900">Included BRDs</h2>
           <div class="mt-2 flex flex-wrap gap-1.5">
             <div *ngFor="let brd of selectedBRDs">
               <app-pill
@@ -141,7 +141,7 @@
           </div>
         </div>
         <div>
-          <h2 class="text-sm font-medium text-secondary-900">Included PRDs</h2>
+          <h2 class="text-sm font-medium text-slate-900">Included PRDs</h2>
           <div class="mt-2 flex flex-wrap gap-1.5">
             <div *ngFor="let prd of selectedPRDs">
               <app-pill
@@ -171,7 +171,7 @@
       >
         <div
           *ngIf="businessProcessForm.errors?.['noPrdOrBrd']"
-          class="text-danger-500 text-center text-xs mt-1"
+          class="text-destructive text-center text-xs mt-1"
         >
           Please select at least one PRD or BRD.
         </div>
@@ -180,7 +180,7 @@
 
     <div class="bg-white border rounded-lg col-span-12 lg:col-span-5">
       <div
-        class="flex justify-center rounded-lg bg-white w-full border-b-[0.5px] border-secondary-300 rounded-b-none"
+        class="flex justify-center rounded-lg bg-white w-full border-b-[0.5px] border-slate-300 rounded-b-none"
       >
         <div
           class="tabs w-full max-w-4xl overflow-hidden flex rounded-t-lg p-1.5 gap-0.5"
@@ -222,9 +222,8 @@
               (click)="onClick(tabId)"
               class="flex-grow text-center py-2.5 text-sm font-medium rounded-lg border"
               [ngClass]="{
-                'border-secondary-200 bg-primary-50 text-primary-600':
-                  isTabActive,
-                'text-secondary-500 border-transparent hover:bg-primary-50':
+                'border-slate-200 bg-primaryold-50 text-primary': isTabActive,
+                'text-muted-foreground border-transparent hover:bg-primaryold-50':
                   !isTabActive,
               }"
             >
@@ -304,7 +303,7 @@
                           class="w-full"
                         >
                           <div class="text-sm flex flex-col gap-1">
-                            <a class="font-semibold text-secondary-500">
+                            <a class="font-semibold text-muted-foreground">
                               {{
                                 (item.fileName || "").replace("-base.json", "")
                               }}
@@ -313,7 +312,7 @@
                               {{ item.content.title }}
                             </h1>
                             <app-rich-text-editor
-                              editorClass="prose-secondary-view text-wrap overflow-y-hidden prose-xs"
+                              editorClass="prose-slate-view text-wrap overflow-y-hidden prose-xs"
                               mode="view"
                               [content]="
                                 truncatePRDandBRDRequirement(
@@ -332,7 +331,7 @@
                 </div>
                 <ng-template #noDocuments>
                   <div class="py-10">
-                    <h2 class="text-center text-secondary-500">
+                    <h2 class="text-center text-muted-foreground">
                       No documents available
                     </h2>
                   </div>

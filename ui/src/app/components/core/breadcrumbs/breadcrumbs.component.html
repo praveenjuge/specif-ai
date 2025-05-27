@@ -8,10 +8,10 @@
     <button
       [disabled]="breadcrumbs.length < 1"
       (click)="navigateToPreviousPage()"
-      class="inline-flex items-center text-xs font-normal text-secondary-300"
+      class="inline-flex items-center text-xs font-normal text-slate-300"
       [ngClass]="{
         'hover:text-white': breadcrumbs.length > 0,
-        'text-secondary-500': breadcrumbs.length < 1,
+        'text-muted-foreground': breadcrumbs.length < 1,
       }"
     >
       <ng-icon
@@ -36,7 +36,7 @@
     </li>
     <li *ngFor="let breadcrumb of breadcrumbs; let last = last">
       <div class="flex items-center">
-        <span class="text-secondary-300 text-xs">/</span>
+        <span class="text-muted-foreground text-xs">/</span>
         <span
           (click)="navigateTo(breadcrumb)"
           (keydown.enter)="navigateTo(breadcrumb)"

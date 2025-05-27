@@ -9,12 +9,12 @@
     <div
       [ngClass]="
         mode === 'add'
-          ? 'bg-white border border-secondary-200 rounded-lg flex flex-col'
-          : 'bg-white border border-secondary-200 rounded-lg flex flex-col lg:col-span-2'
+          ? 'bg-white border rounded-lg flex flex-col'
+          : 'bg-white border rounded-lg flex flex-col lg:col-span-2'
       "
     >
       <header
-        class="flex justify-between items-center p-4 border-b border-secondary-200"
+        class="flex justify-between items-center p-4 border-b border-slate-200"
       >
         <h1 class="text-normal font-semibold">
           {{ mode === "add" ? "Add Task" : existingTask.id }}
@@ -49,7 +49,7 @@
             <ng-container *ngIf="taskForm.get('list')?.touched">
               <span
                 *ngIf="taskForm.get('list')?.errors?.['required']"
-                class="text-red-500 text-sm"
+                class="text-destructive text-sm"
               >
                 Task Name is required
               </span>
@@ -58,10 +58,10 @@
           <div class="flex flex-col gap-1.5">
             <label
               for="elementId"
-              class="block text-sm font-medium text-secondary-500"
+              class="block text-sm font-medium text-muted-foreground"
             >
               Task Description
-              <span class="text-red-500 text-xs">*</span>
+              <span class="text-destructive text-xs">*</span>
             </label>
             <div class="flex flex-col gap-1.5">
               <app-rich-text-editor
@@ -71,7 +71,7 @@
               <ng-container *ngIf="taskForm.get('acceptance')?.touched">
                 <span
                   *ngIf="taskForm.get('acceptance')?.errors?.['required']"
-                  class="text-red-500 text-sm"
+                  class="text-destructive text-sm"
                 >
                   Task Description is required
                 </span>
@@ -84,7 +84,7 @@
           />
         </div>
 
-        <div class="flex justify-end gap-2 p-4 border-t border-secondary-200">
+        <div class="flex justify-end gap-2 p-4 border-t border-slate-200">
           <app-button
             buttonContent="Enhance with AI"
             icon="heroSparklesSolid"

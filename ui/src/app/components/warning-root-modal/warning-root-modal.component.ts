@@ -4,7 +4,7 @@ import { APP_CONSTANTS } from 'src/app/constants/app.constants';
 import { ButtonComponent } from '../core/button/button.component';
 
 @Component({
-  selector: 'app-warning-root-modal',
+  selector: 'app-amber-root-modal',
   templateUrl: './warning-root-modal.component.html',
   styleUrls: ['./warning-root-modal.component.scss'],
   standalone: true,

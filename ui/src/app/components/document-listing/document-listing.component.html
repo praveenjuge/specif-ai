@@ -5,7 +5,7 @@
   <div class="mb-4">
     <div class="flex items-center mt-2 justify-between">
       <div class="flex items-center">
-        <h1 class="text-normal font-semibold text-secondary-700">
+        <h1 class="text-normal font-semibold text-slate-700">
           {{ getDescription(projectList[0].folderName) }}
         </h1>
         <app-badge [badgeText]="projectList.length" />
@@ -47,7 +47,7 @@
             class="col-span-1 flex rounded-md shadow-sm relative"
           >
             <div
-              class="flex flex-1 items-center justify-between truncate rounded-lg border bg-white hover:bg-secondary-50 transition-colors"
+              class="flex flex-1 items-center justify-between truncate rounded-lg border bg-white hover:bg-slate-50 transition-colors"
             >
               <div
                 class="flex-1 truncate p-4 text-sm rounded-lg flex flex-col gap-2"
@@ -57,7 +57,7 @@
                 role="button"
                 tabindex="0"
               >
-                <a class="font-semibold text-secondary-500">
+                <a class="font-semibold text-muted-foreground">
                   {{ item.fileName.replace("-base.json", "") }}
                   <span *ngIf="item.content?.epicTicketId">
                     &bull; {{ item.content.epicTicketId }}
@@ -71,7 +71,7 @@
                   </h1>
                   <ng-container *ngIf="item.content.requirement as requirement">
                     <app-rich-text-editor
-                      editorClass="prose-secondary-view text-wrap overflow-y-hidden prose-xs"
+                      editorClass="prose-slate-view text-wrap overflow-y-hidden prose-xs"
                       mode="view"
                       [content]="item.formattedRequirement ?? ''"
                       [editable]="false"
@@ -98,7 +98,7 @@
                   "
                   role="button"
                   tabindex="0"
-                  class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-secondary-400 hover:bg-secondary-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                  class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent bg-white text-slate-400 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-primaryold-500 focus:ring-offset-2"
                 >
                   <ng-icon
                     class="text-xl"
@@ -115,13 +115,13 @@
 </div>
 
 <ng-template #noProjectList>
-  <p class="text-center text-secondary-500">No project list available.</p>
+  <p class="text-center text-muted-foreground">No project list available.</p>
 </ng-template>
 
 <ng-template #noDocuments>
-  <p class="text-center text-secondary-500">No documents available.</p>
+  <p class="text-center text-muted-foreground">No documents available.</p>
 </ng-template>
 
 <ng-template #noSearchResults>
-  <p class="text-center text-secondary-500">No search results found.</p>
+  <p class="text-center text-muted-foreground">No search results found.</p>
 </ng-template>

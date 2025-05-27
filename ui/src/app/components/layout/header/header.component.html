@@ -1,34 +1,40 @@
 <ng-container *ngIf="(startupService.isLoggedIn$ | async) === true">
   <header
-    class="bg-white border-b [app-region:drag] select-none h-[39px] w-full"
+    class="bg-background border-b [app-region:drag] select-none h-[39px] w-full"
   >
     <div class="flex items-center justify-between pl-4">
       <div [ngClass]="{ 'pl-16': isMacOS && !isFullscreen }">
         <app-breadcrumbs />
       </div>
-      <div class="flex items-center gap-x-3">
-        <div>
+      <div class="flex items-center">
+        <div class="pr-3">
           <ng-container
             *ngIf="themeConfiguration.appLogoDark.length > 0; else showAppName"
           >
             <span class="sr-only">{{ themeConfiguration.appName }}</span>
             <img
               [src]="themeConfiguration.appLogoDark"
-              class="mx-auto h-5"
+              class="mx-auto h-5 block dark:hidden"
+              [alt]="themeConfiguration.appName"
+            />
+            <img
+              [src]="themeConfiguration.appLogo"
+              class="mx-auto h-5 hidden dark:block"
               [alt]="themeConfiguration.appName"
             />
           </ng-container>
           <ng-template #showAppName>
-            <h1 class="text-2xl text-secondary-50">
+            <h1 class="text-2xl">
               {{ themeConfiguration.appName }}
             </h1>
           </ng-template>
         </div>
+        <app-theme-toggle></app-theme-toggle>
         <button
           (click)="navigateToSettings()"
           (keydown.enter)="navigateToSettings()"
           (keydown.space)="navigateToSettings(); $event.preventDefault()"
-          class="flex items-center justify-center h-[39px] px-3.5 border-l border-secondary-200 [app-region:no-drag]"
+          class="flex items-center justify-center h-[39px] px-3.5 border-l [app-region:no-drag]"
         >
           <ng-icon name="heroCog8Tooth" strokeWidth="2" size="16" />
           <span class="sr-only">Settings</span>

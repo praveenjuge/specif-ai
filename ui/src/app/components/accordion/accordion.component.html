@@ -1,4 +1,4 @@
-<div class="w-full mb-2 border rounded-lg bg-secondary-50">
+<div class="w-full mb-2 border rounded-lg bg-slate-50">
   <div
     class="flex justify-between items-center py-3 px-4 rounded-md cursor-pointer"
     (click)="onToggleAccordion()"
@@ -15,16 +15,16 @@
       <ng-container *ngIf="withConnectionStatus">
         <span
           *ngIf="isConnected && isOpen"
-          class="text-success-600 font-medium text-xs border-[0.5px] border-success-300 rounded-full mr-4 px-[10px] py-[3px] flex items-center space-x-2"
+          class="text-emerald-600 font-medium text-xs border-[0.5px] border-emerald-300 rounded-full mr-4 px-[10px] py-[3px] flex items-center space-x-2"
         >
-          <span class="w-1 h-1 bg-success-600 rounded-full"></span>
+          <span class="w-1 h-1 bg-emerald-600 rounded-full"></span>
           <span>Connected</span>
         </span>
         <span
           *ngIf="!isConnected && isOpen"
-          class="text-danger-600 font-medium text-xs border-[0.5px] border-danger-300 rounded-full mr-4 px-[10px] py-[3px] flex items-center space-x-2"
+          class="text-destructive font-medium text-xs border-[0.5px] border-red-300 rounded-full mr-4 px-[10px] py-[3px] flex items-center space-x-2"
         >
-          <span class="w-1 h-1 bg-danger-600 rounded-full"></span>
+          <span class="w-1 h-1 bg-red-600 rounded-full"></span>
           <span>Not Connected</span>
         </span>
       </ng-container>
@@ -32,12 +32,12 @@
         <ng-icon
           *ngIf="isOpen"
           name="heroChevronUp"
-          class="font-bold text-xl text-secondary-500"
+          class="font-bold text-xl text-muted-foreground"
         ></ng-icon>
         <ng-icon
           *ngIf="!isOpen"
           name="heroChevronDown"
-          class="font-bold text-xl text-secondary-500"
+          class="font-bold text-xl text-muted-foreground"
         ></ng-icon>
       </span>
     </div>
